@@ -9,3 +9,10 @@ git push -u origin main
 
 
 Делаем какие то записи
+git fetch забираем с гита в папку гита
+git pull вносим изменения в проект
+
+
+git add .
+git commit -m "prob1"
+git push
