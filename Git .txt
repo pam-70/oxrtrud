@@ -23,3 +23,37 @@ php artisan migrate:rollback
 php artisan migrate:rollback --step=5
 php artisan migrate:reset
 php artisan migrate:refresh
+echo "# oxrtrud" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/pam-70/oxrtrud.git
+git push -u origin main
+
+
+
+Делаем какие то записи
+git fetch забираем с гита в папку гита
+git pull вносим изменения в проект
+
+
+git add .
+git commit -m "prob1"
+git push
+
+
+https://laravel.su/docs/8.x/migrations
+php artisan make:migration create_users_table
+
+php artisan migrate
+php artisan migrate:rollback
+php artisan migrate:rollback --step=5
+php artisan migrate:reset
+php artisan migrate:refresh
+
+
+
+
+composer require laravel/ui:^2.4
+php artisan ui vue --auth
