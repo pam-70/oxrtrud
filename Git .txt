@@ -16,3 +16,10 @@ git pull вносим изменения в проект
 git add .
 git commit -m "prob1"
 git push
+
+php artisan make:model Institution -m      создание и модели и миграции
+php artisan migrate
+php artisan migrate:rollback
+php artisan migrate:rollback --step=5
+php artisan migrate:reset
+php artisan migrate:refresh
