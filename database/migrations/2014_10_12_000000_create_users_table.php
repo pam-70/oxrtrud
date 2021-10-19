@@ -22,7 +22,10 @@ class CreateUsersTable extends Migration
             $table->string('name')->nullable();
             $table->string('patronymic')->nullable();
             $table->integer('institution_id')->unsigned();
-            $table->foreign('institution_id')->references('id')->on('institutions');
+
+          //  $table->foreign('institution_id')->references('id')->on('institutions');
+           // $table->integer('institution_id')->unsigned();
+           // $table->foreign('institution_id')->references('id')->on('institutions');
             $table->string('post')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
