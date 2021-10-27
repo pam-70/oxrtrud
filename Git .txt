@@ -41,7 +41,16 @@ git push
 git pull
 composer install
 
+-------------------------------------------------------
+git rm --cached ./folderName
+ git add ./folderName
 
+
+
+git status
+git commit -m "your commit"
+git push -u origin master
+ ----------------------------------------------------------
 Делаем какие то записи
 git fetch забираем с гита в папку гита
 git pull вносим изменения в проект
