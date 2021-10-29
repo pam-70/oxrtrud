@@ -41,6 +41,7 @@ git pull вносим изменения в проект
 git add .
 git commit -m "prob1"
 git push
+git push --set-upstream origin nout
 
 
 https://laravel.su/docs/8.x/migrations
