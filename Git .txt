@@ -23,6 +23,7 @@ php artisan migrate:rollback
 php artisan migrate:rollback --step=5
 php artisan migrate:reset
 php artisan migrate:refresh
+php artisan migrate:fresh не знаю
 echo "# oxrtrud" >> README.md
 git init
 git add README.md
@@ -30,9 +31,20 @@ git commit -m "first commit"
 git branch -M main
 git remote add origin https://github.com/pam-70/oxrtrud.git
 git push -u origin main
+----------------------------------------------------------
+composer update
+git add composer.lock
+git commit -m "Update some libs"
+git push
 
+На другой машине
 
+git pull
+composer install
 
+-------------------------------------------------------
+
+ ----------------------------------------------------------
 Делаем какие то записи
 git fetch забираем с гита в папку гита
 git pull вносим изменения в проект
