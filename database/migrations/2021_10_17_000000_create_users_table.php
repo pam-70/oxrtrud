@@ -20,8 +20,8 @@ class CreateUsersTable extends Migration
             $table->string('email')->nullable();
             $table->string('surname')->nullable();
             $table->string('name')->nullable();
-            $table->string('patronymic');
-            $table->unsignedBigInteger('institution_id');
+            $table->string('patronymic')->nullable();
+            $table->unsignedBigInteger('institution_id')->unsigned();
             $table->foreign('institution_id')->references('id')->on('institutions');
             $table->string('post')->nullable();
             $table->timestamp('email_verified_at')->nullable();
