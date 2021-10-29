@@ -67,8 +67,11 @@ php artisan migrate:refresh
 
 
 
-
+-----------------------------------
 composer require laravel/ui:^2.4
 php artisan ui vue --auth
 npm install 
 npm run dev
+npm run watch
+npm run watch-poll
+-------------------------------------
