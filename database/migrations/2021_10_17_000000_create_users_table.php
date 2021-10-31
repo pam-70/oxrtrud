@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('surname')->nullable();
             $table->string('name')->nullable();
             $table->string('patronymic')->nullable();
-            $table->unsignedBigInteger('institution_id')->unsigned();
+            $table->unsignedBigInteger('institution_id')->unsigned()->default(1);
             $table->foreign('institution_id')->references('id')->on('institutions');
             $table->string('post')->nullable();
             $table->timestamp('email_verified_at')->nullable();
