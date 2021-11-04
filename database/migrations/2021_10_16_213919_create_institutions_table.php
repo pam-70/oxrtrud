@@ -16,6 +16,10 @@ class CreateInstitutionsTable extends Migration
         Schema::create('institutions', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable();
+            $table->string('members1')->nullable();
+            $table->string('members2')->nullable();
+            $table->string('members3')->nullable();
+            $table->string('members4')->nullable();
             $table->timestamps();
         });
     }

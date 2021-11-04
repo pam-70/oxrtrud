@@ -74,4 +74,14 @@ npm install
 npm run dev
 npm run watch
 npm run watch-poll
+node -v
+npm -v
+npm install
+npm install --no-bin-links
+// Запустить все задачи Mix...
+npm run dev
+// Запустить все задачи Mix и минифицировать вывод...
+npm run production
+npm run watch
+npm run watch-poll
 -------------------------------------

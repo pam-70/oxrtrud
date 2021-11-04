@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+                <div class="card-header">{{ __('Страница сдачи экзаменов по охране труда') }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -14,7 +14,13 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                    
+                    @if(Auth::user()->role=="student")
+                    <student-component></student-component>
+                    @endif
+                    @if(Auth::user()->role=="admin")
+                    <admin-component></admin-component>
+                    @endif
                 </div>
             </div>
         </div>
