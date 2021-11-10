@@ -1908,6 +1908,8 @@ module.exports = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -1924,9 +1926,84 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      addradio: 0,
+      // переменная задает верный ответ
+      url_answer: [],
+      url_question: "",
+      recorded: "",
+      counter: 0,
+      numer: 1,
+      last: "888888"
+    };
+  },
   mounted: function mounted() {
-    console.log('Component mounted.');
+    this.update(); //this.addanswer();
+  },
+  methods: {
+    update: function update() {
+      this.run_test();
+    },
+    addanswer: function addanswer() {
+      var _this = this;
+
+      var data_form = {
+        id_test: this.addradio
+      };
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post("/add_answer", data_form).then(function (response) {
+        console.log(response.data.url_answer);
+        _this.recorded = response.data.url_recorded;
+      });
+    },
+    more: function more() {
+      this.numer += 1;
+      this.recorded = "";
+      this.run_test();
+    },
+    less: function less() {
+      this.numer -= 1;
+      this.recorded = "";
+      this.run_test();
+    },
+    run_test: function run_test() {
+      var _this2 = this;
+
+      console.log("run_test");
+      var data_form = {
+        //lastname: this.lastname,
+        last_post: "9999",
+        numer_post: this.numer
+      };
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post("/edit_test", data_form).then(function (response) {
+        //axios.post("/run_test").then(response => {
+        //console.log(response.data.url_addradio);
+        _this2.addradio = response.data.url_addradio;
+        _this2.url_answer = response.data.url_answer;
+        _this2.url_question = response.data.url_question; //console.log(response.data.url_answer);
+        //console.log(response.data.url_strok);
+        //this.url_categorie[]="";
+        //this.clearform();
+      });
+    }
   }
 });
 
@@ -1974,6 +2051,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -1990,9 +2069,76 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
-  mounted: function mounted() {
-    console.log('Component mounted.');
+  data: function data() {
+    return {
+      numer_testa: 1,
+      //исправить на ноль после отладки номер вопроса самая основная переменная
+      all_quest: 10,
+      //исправить на ноль после отладки всего вопросов
+      summar_id: 12,
+      //исправить на ноль после отладки всего вопросов
+      counter: 0,
+      choice: "1",
+      last: "888888",
+      list: []
+    };
+  },
+  mounted: function mounted() {// this.update();
+  },
+  methods: {
+    run_test: function run_test() {
+      var _this = this;
+
+      console.log("run_test");
+      var data_form = {
+        //lastname: this.lastname,
+        choice_post: this.choice,
+        // выбор номера теста задания
+        numer_testa: this.numer_testa,
+        all_quest: this.all_quest,
+        summar_id: this.summar_id
+      };
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post("/run_test", data_form).then(function (response) {
+        //axios.post("/run_test").then(response => {
+        //console.log(response.data.url_klasse);
+        //this.url_listt = response.data.url_listt;
+        _this.numer_testa = response.data.url_numer_testa;
+        _this.all_quest = response.data.url_all_quest;
+        _this.summar_id = response.data.url_summar_id;
+        console.log(_this.numer_testa);
+        console.log(_this.all_quest);
+        console.log(_this.summar_id);
+        console.log(response.data.url_odin_quest); //console.log(response.data.url_listt);
+        //console.log(response.data.url_strok);
+        //this.url_categorie[]="";
+        //this.clearform();
+      });
+    }
   }
 });
 
@@ -37659,30 +37805,76 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "row justify-content-center" }, [
-        _c("div", { staticClass: "col-md-12" }, [
-          _c("div", { staticClass: "card" }, [
-            _c("div", { staticClass: "card-header" }, [
-              _vm._v("Example Component")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-body" }, [
-              _vm._v("\n                    Admin component\n                ")
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "row justify-content-center" }, [
+      _c("div", { staticClass: "col-md-12" }, [
+        _c("div", { attrs: { id: "example-1" } }, [
+          _c("button", { on: { click: _vm.less } }, [
+            _vm._v("Вопрос теста < " + _vm._s(_vm.numer))
+          ]),
+          _vm._v(" "),
+          _c("button", { on: { click: _vm.more } }, [
+            _vm._v("Вопрос теста > " + _vm._s(_vm.numer))
+          ]),
+          _vm._v(" "),
+          _c("p", [_vm._v("Номер вопроса " + _vm._s(_vm.numer))]),
+          _vm._v(" "),
+          _vm.recorded != ""
+            ? _c(
+                "div",
+                {
+                  staticClass: "alert alert-success",
+                  attrs: { role: "alert" }
+                },
+                [_c("strong", [_vm._v(_vm._s(_vm.recorded))])]
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          _c("p", [_vm._v(_vm._s(_vm.url_question))])
+        ]),
+        _vm._v(" "),
+        _c(
+          "span",
+          _vm._l(_vm.url_answer, function(answer) {
+            return _c("span", { key: answer.answer }, [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.addradio,
+                    expression: "addradio"
+                  }
+                ],
+                attrs: { type: "radio", id: answer.id },
+                domProps: {
+                  value: answer.id,
+                  checked: _vm._q(_vm.addradio, answer.id)
+                },
+                on: {
+                  change: function($event) {
+                    _vm.addradio = answer.id
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _c("label", { attrs: { for: "one" } }, [
+                _vm._v(_vm._s(answer.answer))
+              ]),
+              _c("br")
             ])
-          ])
+          }),
+          0
+        ),
+        _vm._v(" "),
+        _c("button", { on: { click: _vm.addanswer } }, [
+          _vm._v("Записать значение")
         ])
       ])
     ])
-  }
-]
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -37751,28 +37943,95 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "row" }, [
+      _c("span", [
+        _c("div", { staticClass: "col-sm" }, [
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.choice,
+                expression: "choice"
+              }
+            ],
+            attrs: { type: "radio", id: "one", value: "1" },
+            domProps: { checked: _vm._q(_vm.choice, "1") },
+            on: {
+              change: function($event) {
+                _vm.choice = "1"
+              }
+            }
+          }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "one" } }, [_vm._v("Охрана труда")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-sm" }, [
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.choice,
+                expression: "choice"
+              }
+            ],
+            attrs: { type: "radio", id: "two", value: "2" },
+            domProps: { checked: _vm._q(_vm.choice, "2") },
+            on: {
+              change: function($event) {
+                _vm.choice = "2"
+              }
+            }
+          }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "two" } }, [
+            _vm._v("Электробезопасность")
+          ])
+        ])
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-sm" }, [
+        _c("div", { attrs: { id: "example-1" } }, [
+          _c(
+            "button",
+            { staticClass: "btn btn-success", on: { click: _vm.run_test } },
+            [_vm._v("\n          Выполнить тест\n        ")]
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm" }),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm right" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _c(
+          "ul",
+          { attrs: { id: "example-1" } },
+          _vm._l(_vm.list, function(lists) {
+            return _c("li", { key: lists.id }, [
+              _vm._v("\n          " + _vm._s(lists.id) + "\n        ")
+            ])
+          }),
+          0
+        )
+      ])
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "row justify-content-center" }, [
-        _c("div", { staticClass: "col-md-12" }, [
-          _c("div", { staticClass: "card" }, [
-            _c("div", { staticClass: "card-header" }, [
-              _vm._v("Example Component")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-body" }, [
-              _vm._v(
-                "\n                    Student component\n                "
-              )
-            ])
-          ])
-        ])
+    return _c("div", { attrs: { id: "example-2" } }, [
+      _c("button", { staticClass: "btn btn-info" }, [
+        _vm._v("Просмотр выполненных")
       ])
     ])
   }

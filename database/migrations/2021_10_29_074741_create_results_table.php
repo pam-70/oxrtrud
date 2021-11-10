@@ -19,8 +19,8 @@ class CreateResultsTable extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->unsignedBigInteger('question_id');
             $table->foreign('question_id')->references('id')->on('questions');
-            $table->unsignedBigInteger('summary_id');
-            $table->foreign('summary_id')->references('id')->on('summarys');
+            $table->unsignedBigInteger('summarie_id');
+            $table->foreign('summarie_id')->references('id')->on('summaries');
             $table->string('variant')->nullable();
             $table->string('answer')->nullable();
             $table->string('question_number')->nullable();

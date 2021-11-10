@@ -20,3 +20,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+//Route::post('/run_test', ['as' => 'run_test', 'uses' => 'TestController@runtest']);
+Route::match(['get', 'post'], '/run_test', ['as' => 'run_test', 'uses' => 'TestController@runtest']);
+Route::match(['get', 'post'], '/edit_test', ['as' => 'edit_test', 'uses' => 'AdminController@edittest']);//addanswer
+Route::match(['get', 'post'], '/add_answer', ['as' => 'add_answer', 'uses' => 'AdminController@addanswer']);//

@@ -21,8 +21,8 @@ php artisan make:model Institution -m      создание и модели и �
 php artisan migrate
 php artisan migrate:rollback
 php artisan migrate:rollback --step=5
-php artisan migrate:reset
-php artisan migrate:refresh
+php artisan migrate:reset отменит
+php artisan migrate:refresh  перезагрузит
 php artisan migrate:fresh не знаю
 echo "# oxrtrud" >> README.md
 git init
@@ -85,3 +85,7 @@ npm run production
 npm run watch
 npm run watch-poll
 -------------------------------------
+форматирование кода доступно в VS Code через следующие ярлыки:
+
+На Windows Shift + Alt + F
+--------------------------------------
