@@ -33,7 +33,7 @@ git remote add origin https://github.com/pam-70/oxrtrud.git
 git push -u origin main
 ----------------------------------------------------------
 composer update
-git add composer.lock
+git add composer.lock       добавление изменнений в vendor
 git commit -m "Update some libs"
 git push
 
@@ -58,6 +58,10 @@ git push --set-upstream origin nout
 
 https://laravel.su/docs/8.x/migrations
 php artisan make:migration create_users_table
+
+php artisan make:migration add_dob_to_users
+composer require doctrine/dbal:2.* чтобы добавлять столбцы
+
 
 php artisan migrate
 php artisan migrate:rollback

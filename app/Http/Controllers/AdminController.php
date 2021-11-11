@@ -10,9 +10,38 @@ use Illuminate\Http\Request;
 class AdminController extends Controller
 {
     //
+    public function addtxt(Request $request)
+    { //biletot.txt
+        $bilet = file('biletot.txt');
+        $v = 1;
+        $x = 1;
+        foreach ($bilet as $bilet_srt) {
+
+            if ($v == 0) {
+
+                echo (substr($bilet_srt, 3) . "  @Сам вопрос <br> строка = " . $x);
+                $x++;
+            }
+            if ($v == 1 and $bilet_srt != "\r\n") {
+                echo (substr($bilet_srt, 3) . "  @Сам ответ<br>  строка = " . $x);
+            }
+            if ($bilet_srt == "\r\n") {
+                $v = 0;
+            } else {
+                $v = 1;
+            }
+        }
+        dd($bilet);
+
+
+
+
+
+        echo ("Route::match(['get', 'post'], '/add_answer', ['as' => 'add_answer', 'uses' => 'AdminController@addanswer']);//addtxt");
+    }
     public function edittest(Request $request)
     {
-        
+
         $quest_numer = Question::find($request->numer_post);
 
         // echo ($flight1->quest . "<br>");
