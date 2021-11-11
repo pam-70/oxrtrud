@@ -116,7 +116,7 @@ class TestController extends Controller
                     $id_que=$odin_qu->question_id;
                 }
               // $qq= Question::find($id_que);
-              Переделать на другую таблицу
+             // Переделать на другую таблицу
                $qq= Question::find($id_que)->answers;
                echo($id_que);
 

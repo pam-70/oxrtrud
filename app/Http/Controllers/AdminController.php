@@ -4,12 +4,54 @@ namespace App\Http\Controllers;
 
 use App\Answer;
 use App\Question;
+use App\Result;
 
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
-    //
+    //exp_txt
+    public function exptxt(Request $request)
+    {
+        //exptxt.txt
+        $all_quest = Question::all();
+
+
+        $exptxt = fopen("exptxt.txt", 'w') or die("не удалось открыть файл");
+        $sob="@@";
+        
+        fwrite($exptxt, $sob);
+       // fwrite($exptxt, "\r\n");
+       // echo ("@ <br>");
+        foreach ($all_quest as $on_quest) {
+            fwrite($exptxt, $on_quest->quest);
+           // echo ($on_quest->quest . "<br>");
+
+            $all_answ = Question::find($on_quest->id)->answers;
+            foreach ($all_answ as $on_answ) {
+                $dfr=substr($on_answ->answer , -2);
+                $aser=$on_answ->right."=".$on_answ->answer ;
+               // echo ( $on_answ->right . "<br>");
+
+               // $aser=$dfr."-".$on_answ->right;
+                fwrite($exptxt, $aser );
+              //  echo ($on_answ->answer . "=" . $on_answ->right . "<br>");
+            }
+           // echo ("@ <br>");
+            fwrite($exptxt, $sob);
+           // fwrite($exptxt, "\r\n");
+        }
+        fclose($exptxt);
+        $ttt=file('exptxt.txt');
+
+
+dd($ttt);
+
+        dd($all_quest);
+    }
+
+
+
     public function addtxt(Request $request)
     { //biletot.txt
         $bilet = file('biletot.txt');
